@@ -9,8 +9,8 @@ function findById(id) {
 }
 
 function findSteps(scheme_id) {
-  return db
-    .select("steps.id", "step_number", "instructions", "scheme_name")
+  return db("schemes")
+    .select("steps.id", "step_number", "instructions")
     .from("steps")
     .join("schemes", "steps.scheme_id", "schemes.id")
     .where({ scheme_id })
